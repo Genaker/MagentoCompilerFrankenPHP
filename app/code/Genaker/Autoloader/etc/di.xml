@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Autoloader is registered directly in registration.php for early loading -->
+    
+    <!-- Console Commands -->
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="genaker_autoloader_combine_files" xsi:type="object">Genaker\Autoloader\Console\Command\CombineClassMapFiles</item>
+                <item name="genaker_autoloader_combine_app_code" xsi:type="object">Genaker\Autoloader\Console\Command\CombineAppCodeFiles</item>
+                <item name="genaker_autoloader_compile_go" xsi:type="object">Genaker\Autoloader\Console\Command\CompileWithGo</item>
+                <item name="genaker_autoloader_compile_php" xsi:type="object">Genaker\Autoloader\Console\Command\CompileWithPhp</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

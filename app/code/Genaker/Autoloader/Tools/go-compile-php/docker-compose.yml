@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  go-compile-php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: genaker/go-compile-php:latest
+    volumes:
+      - .:/workspace
+    working_dir: /workspace

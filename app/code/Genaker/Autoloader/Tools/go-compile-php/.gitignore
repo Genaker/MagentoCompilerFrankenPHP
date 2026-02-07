@@ -1,0 +1,4 @@
+go-compile-php
+*.exe
+*.test
+*.prof

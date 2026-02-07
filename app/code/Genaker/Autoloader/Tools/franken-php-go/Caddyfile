@@ -1,0 +1,26 @@
+{
+    auto_https off
+    admin localhost:2019
+}
+
+:8080 {
+    root * /app/public/pub
+    
+    # Worker mode configuration for Magento
+    php_server {
+        worker /app/config/magento_worker.php 2
+    }
+    
+    # Static files - serve directly
+    @static {
+        path *.css *.js *.jpg *.jpeg *.png *.gif *.svg *.ico *.woff *.woff2 *.ttf *.eot *.pdf *.zip *.tar *.gz
+    }
+    handle @static {
+        file_server
+    }
+    
+    # All other requests go to Magento (via worker)
+    handle {
+        php_server
+    }
+}
